@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <todo-list :todos="todos"></todo-list>
+    <create-todo @add-todo="addTodo"></create-todo>
   </div>
 </template>
 
