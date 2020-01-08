@@ -1,18 +1,20 @@
 <template>
   <div id="app">
     <todo-list :todos="todos"></todo-list>
+    <create-todo @add-todo="addTodo"></create-todo>
   </div>
 </template>
 
 <script>
 import TodoList from './components/ToDolist'
+import CreateTodo from './components/CreateTodo'
 
 export default {
   name: 'app',
   components: {
     TodoList,
+    CreateTodo
   },
-  // data function avails data to the template
   data() {
     return {
       todos: [{
@@ -33,6 +35,15 @@ export default {
         done: false,
       }],
     };
+  },
+
+  methods: {
+    addTodo(title) {
+      this.todos.push({
+        title,
+        done: false,
+      });
+    },
   },
 };
 
